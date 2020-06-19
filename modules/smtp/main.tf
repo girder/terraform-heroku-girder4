@@ -50,6 +50,6 @@ data "aws_iam_policy_document" "smtp" {
   statement {
     # https://docs.aws.amazon.com/ses/latest/DeveloperGuide/control-user-access.html
     resources = [aws_ses_domain_identity.smtp.arn]
-    actions = ["ses:SendRawEmail"]
+    actions   = ["ses:SendRawEmail"]
   }
 }
