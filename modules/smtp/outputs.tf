@@ -19,5 +19,6 @@ output "username" {
 
 output "password" {
   value       = aws_iam_access_key.smtp.ses_smtp_password_v4
+  sensitive = true
   description = "The password for the outgoing SMTP server."
 }
