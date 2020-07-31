@@ -31,6 +31,29 @@ resource "aws_s3_bucket" "storage" {
     ]
     max_age_seconds = 600
   }
+
+  cors_rule {
+    allowed_headers = ["*"]
+    allowed_methods = ["POST", "PUT"]
+
+    # Client uploads must be explicitly authorized on demand, so only allowing specific CORS
+    # origins does not increase security
+    allowed_origins = ["*"]
+
+    expose_headers = [
+      # https://docs.aws.amazon.com/AmazonS3/latest/API/RESTCommonResponseHeaders.html
+      # Exclude "x-amz-request-id" and "x-amz-id-2", as they are only for debugging
+      "Content-Length",
+      "Connection",
+      "Date",
+      "ETag",
+      "Server",
+      "x-amz-delete-marker",
+      "x-amz-version-id",
+    ]
+
+    max_age_seconds = 600
+  }
 }
 
 
