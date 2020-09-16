@@ -100,3 +100,13 @@ data "aws_iam_policy_document" "storage_django" {
     ]
   }
 }
+
+resource "aws_s3_bucket_public_access_block" "storage" {
+  bucket = aws_s3_bucket.storage.id
+
+  block_public_acls = true
+  block_public_policy = true
+  ignore_public_acls = true
+  # restrict_public_buckets also blocks cross-account access to the bucket
+  restrict_public_buckets = true
+}
