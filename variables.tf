@@ -4,9 +4,9 @@ variable "project_slug" {
   description = "A slugified name, used to label resources."
 }
 
-variable "fqdn" {
+variable "subdomain_name" {
   type        = string
-  description = "The fully qualified domain name where the server will be available."
+  description = "The DNS subdomain name where the server will be available."
 }
 
 variable "heroku_team_name" {
