@@ -1,14 +1,14 @@
-output "heroku_app" {
-  value       = module.heroku.app
-  description = "The Heroku app."
+output "heroku_app_id" {
+  value       = module.heroku.app_id
+  description = "The ID of the Heroku app."
 }
 
-output "iam_user" {
-  value       = aws_iam_user.heroku_user
-  description = "The IAM user for Heroku."
+output "iam_user_id" {
+  value       = aws_iam_user.heroku_user.id
+  description = "The ID of the IAM user for Heroku."
 }
 
-output "storage_bucket" {
-  value       = module.storage.bucket
-  description = "The storage S3 bucket."
+output "storage_bucket_name" {
+  value       = module.storage.bucket_name
+  description = "The storage S3 bucket name."
 }

@@ -3,7 +3,7 @@ output "cname" {
   description = "The CNAME traffic should route to."
 }
 
-output "app" {
-  value       = heroku_app.heroku
-  description = "The app."
+output "app_id" {
+  value       = heroku_app.heroku.id
+  description = "The app ID."
 }

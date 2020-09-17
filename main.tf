@@ -18,7 +18,7 @@ module "smtp" {
 
   fqdn            = var.fqdn
   project_slug    = var.project_slug
-  route53_zone_id = var.route53_zone.zone_id
+  route53_zone_id = var.route53_zone_id
 }
 
 resource "random_string" "django_secret" {
@@ -29,9 +29,9 @@ resource "random_string" "django_secret" {
 module "heroku" {
   source = "./modules/heroku"
 
-  team     = var.heroku_team
-  app_name = local.heroku_app_name
-  fqdn     = var.fqdn
+  team_name = var.heroku_team_name
+  app_name  = local.heroku_app_name
+  fqdn      = var.fqdn
 
   config_vars = merge(
     {
@@ -66,7 +66,7 @@ module "heroku" {
 }
 
 resource "aws_route53_record" "heroku" {
-  zone_id = var.route53_zone.zone_id
+  zone_id = var.route53_zone_id
   name    = var.fqdn
   type    = "CNAME"
   ttl     = "300"
