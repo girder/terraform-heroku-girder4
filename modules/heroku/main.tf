@@ -1,8 +1,12 @@
+data "heroku_team" "heroku" {
+  name = var.team_name
+}
+
 resource "heroku_app" "heroku" {
   name   = var.app_name
   region = "us"
   organization {
-    name = var.team_name
+    name = data.heroku_team.heroku.name
   }
   buildpacks = [
     "heroku/python"
