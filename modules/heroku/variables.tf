@@ -1,9 +1,6 @@
-variable "team" {
-  type = object({
-    id   = string
-    name = string
-  })
-  description = "The team of the app."
+variable "team_name" {
+  type        = string
+  description = "The name of the team for the app."
 }
 
 variable "app_name" {

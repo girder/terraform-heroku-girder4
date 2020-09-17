@@ -2,7 +2,7 @@ resource "heroku_app" "heroku" {
   name   = var.app_name
   region = "us"
   organization {
-    name = var.team.name
+    name = var.team_name
   }
   buildpacks = [
     "heroku/python"

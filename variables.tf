@@ -9,21 +9,14 @@ variable "fqdn" {
   description = "The fully qualified domain name where the server will be available."
 }
 
-variable "heroku_team" {
-  type = object({
-    id   = string
-    name = string
-  })
-  description = "The name of the Heroku team."
+variable "heroku_team_name" {
+  type        = string
+  description = "The name of the Heroku team for the app."
 }
 
-variable "route53_zone" {
-  type = object({
-    id      = string
-    zone_id = string
-    name    = string
-  })
-  description = "The Route 53 zone to create new DNS records within."
+variable "route53_zone_id" {
+  type        = string
+  description = "The Route 53 zone ID to create new DNS records within."
 }
 
 # Optional variables
