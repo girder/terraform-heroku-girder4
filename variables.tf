@@ -29,7 +29,7 @@ variable "heroku_app_name" {
 variable "storage_bucket_name" {
   type        = string
   default     = "" # Actual default is set internally
-  description = "The name of the Heroku app."
+  description = "The globally unique S3 bucket name of the storage."
 }
 
 variable "django_default_from_email" {
