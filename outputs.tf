@@ -1,3 +1,8 @@
+output "fqdn" {
+  value = aws_route53_record.heroku.fqdn
+  description = "The fully-qualified domain name of the Heroku app."
+}
+
 output "heroku_app_id" {
   value       = module.heroku.app_id
   description = "The ID of the Heroku app."
