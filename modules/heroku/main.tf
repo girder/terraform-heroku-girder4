@@ -48,7 +48,7 @@ resource "heroku_addon" "heroku_cloudamqp" {
 
 resource "heroku_addon" "heroku_papertrail" {
   app  = heroku_app.heroku.id
-  plan = "papertrail:choklad"
+  plan = "papertrail::${var.papertrail_plan}"
 }
 
 resource "heroku_domain" "heroku" {
