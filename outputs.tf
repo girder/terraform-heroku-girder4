@@ -1,5 +1,5 @@
 output "fqdn" {
-  value = aws_route53_record.heroku.fqdn
+  value       = aws_route53_record.heroku.fqdn
   description = "The fully-qualified domain name of the Heroku app."
 }
 
