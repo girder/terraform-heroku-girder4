@@ -95,3 +95,9 @@ variable "heroku_cloudamqp_plan" {
   default     = "lemur"
   description = "The Heroku CloudAMQP add-on plan type."
 }
+
+variable "heroku_papertrail_plan" {
+  type        = string
+  default     = "choklad"
+  description = "The Heroku Papertrail add-on plan type."
+}

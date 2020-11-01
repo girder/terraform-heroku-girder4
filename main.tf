@@ -68,6 +68,7 @@ module "heroku" {
   worker_dyno_quantity = var.heroku_worker_dyno_quantity
   postgresql_plan      = var.heroku_postgresql_plan
   cloudamqp_plan       = var.heroku_cloudamqp_plan
+  papertrail_plan      = var.heroku_papertrail_plan
 }
 
 resource "aws_route53_record" "heroku" {
