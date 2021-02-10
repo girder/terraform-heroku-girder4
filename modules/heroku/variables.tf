@@ -16,6 +16,7 @@ variable "config_vars" {
 variable "sensitive_config_vars" {
   type        = map(string)
   description = "App environment variables."
+  sensitive   = true
 }
 
 variable "fqdn" {
