@@ -12,6 +12,11 @@ resource "aws_s3_bucket" "storage" {
     }
   }
 
+  lifecycle_rule {
+    enabled                                = true
+    abort_incomplete_multipart_upload_days = 7
+  }
+
   cors_rule {
     allowed_headers = ["*"]
     allowed_methods = ["GET"]
