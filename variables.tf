@@ -58,6 +58,7 @@ variable "additional_sensitive_django_vars" {
   type        = map(string)
   default     = {}
   description = "Additional Django environment variables, which will not be printed."
+  sensitive   = true
 }
 
 variable "heroku_web_dyno_size" {
