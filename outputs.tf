@@ -8,7 +8,7 @@ output "heroku_app_id" {
   description = "The ID of the Heroku app."
 }
 
-output "iam_user_id" {
+output "heroku_iam_user_id" {
   value       = aws_iam_user.heroku_user.id
   description = "The ID of the IAM user for Heroku."
 }
