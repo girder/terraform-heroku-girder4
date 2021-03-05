@@ -39,8 +39,8 @@ output "fqdn" {
 output "heroku_app_id" {
   value = module.django.heroku_app_id
 }
-output "iam_user_id" {
-  value = module.django.iam_user_id
+output "heroku_iam_user_id" {
+  value = module.django.heroku_iam_user_id
 }
 output "storage_bucket_name" {
   value = module.django.storage_bucket_name
