@@ -8,6 +8,9 @@ terraform {
     heroku = {
       source = "heroku/heroku"
     }
+    local = {
+      source = "hashicorp/local"
+    }
     random = {
       source = "hashicorp/random"
     }

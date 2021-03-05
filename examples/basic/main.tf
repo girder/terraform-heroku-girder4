@@ -16,6 +16,11 @@ data "heroku_team" "heroku" {
   name = "heroku_team"
 }
 
+data "local_file" "ssh_public_key" {
+  # This must be an existing file on the local filesystem
+  filename = "/home/user/.ssh/id_rsa.pub"
+}
+
 # This provides a zero-configuration option for assigning names,
 # but most projects will want to select a more specific name instead
 resource "random_pet" "instance_name" {
@@ -31,6 +36,10 @@ module "django" {
   route53_zone_id  = data.aws_route53_zone.domain.zone_id
   heroku_team_name = data.heroku_team.heroku.name
   subdomain_name   = random_pet.instance_name.id
+
+  // Provisional an optional EC2 worker too
+  ec2_worker_ssh_public_key    = data.local_file.ssh_public_key.content
+  ec2_worker_instance_quantity = 1
 }
 
 output "fqdn" {
@@ -44,4 +53,10 @@ output "heroku_iam_user_id" {
 }
 output "storage_bucket_name" {
   value = module.django.storage_bucket_name
+}
+output "ec2_worker_hostnames" {
+  value = module.django.ec2_worker_hostnames
+}
+output "ec2_worker_iam_role_id" {
+  value = module.django.ec2_worker_iam_role_id
 }

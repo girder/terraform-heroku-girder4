@@ -102,3 +102,27 @@ variable "heroku_papertrail_plan" {
   default     = "choklad"
   description = "The Heroku Papertrail add-on plan type."
 }
+
+variable "ec2_worker_ssh_public_key" {
+  type        = string
+  default     = null
+  description = "An SSH public key, to be installed on the EC2 workers. This must be set if ec2_worker_instance_quantity > 0."
+}
+
+variable "ec2_worker_instance_type" {
+  type        = string
+  default     = "t3.small"
+  description = "The EC2 workers' instance size."
+}
+
+variable "ec2_worker_instance_quantity" {
+  type        = number
+  default     = 0
+  description = "The quantity of EC2 worker instances."
+}
+
+variable "ec2_worker_volume_size" {
+  type        = number
+  default     = 40
+  description = "The size, in GB, of the root EBS volume for the EC2 workers."
+}
