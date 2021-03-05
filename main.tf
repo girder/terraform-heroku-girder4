@@ -3,9 +3,9 @@ data "aws_region" "current" {} # auto-populated
 locals {
   fqdn = "${var.subdomain_name}.${data.aws_route53_zone.current.name}"
   # Variable defaults cannot be directly based on other variables
-  heroku_app_name           = var.heroku_app_name != "" ? var.heroku_app_name : var.project_slug
-  storage_bucket_name       = var.storage_bucket_name != "" ? var.storage_bucket_name : "${var.project_slug}-storage"
-  django_default_from_email = var.django_default_from_email != "" ? var.django_default_from_email : "admin@${local.fqdn}"
+  heroku_app_name           = var.heroku_app_name != null ? var.heroku_app_name : var.project_slug
+  storage_bucket_name       = var.storage_bucket_name != null ? var.storage_bucket_name : "${var.project_slug}-storage"
+  django_default_from_email = var.django_default_from_email != null ? var.django_default_from_email : "admin@${local.fqdn}"
 }
 
 data "aws_route53_zone" "current" {
