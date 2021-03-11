@@ -17,3 +17,13 @@ output "storage_bucket_name" {
   value       = module.storage.bucket_name
   description = "The storage S3 bucket name."
 }
+
+output "ec2_worker_hostnames" {
+  value       = var.ec2_worker_instance_quantity > 0 ? aws_route53_record.ec2_worker[*].fqdn : []
+  description = "The public hostnames of the EC2 workers."
+}
+
+output "ec2_worker_iam_role_id" {
+  value       = var.ec2_worker_instance_quantity > 0 ? module.ec2_worker[0].iam_role_id : null
+  description = "The ID of the instance profile IAM role for the EC2 workers."
+}

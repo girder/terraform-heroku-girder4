@@ -78,3 +78,31 @@ resource "aws_route53_record" "heroku" {
   ttl     = "300"
   records = [module.heroku.cname]
 }
+
+module "ec2_worker" {
+  # Only create this if ec2_worker_instance_quantity > 0
+  count  = var.ec2_worker_instance_quantity > 0 ? 1 : 0
+  source = "./modules/ec2_worker"
+
+  project_slug      = "${var.project_slug}-worker"
+  ssh_public_key    = var.ec2_worker_ssh_public_key
+  instance_type     = var.ec2_worker_instance_type
+  instance_quantity = var.ec2_worker_instance_quantity
+  volume_size       = var.ec2_worker_volume_size
+}
+
+resource "aws_route53_record" "ec2_worker" {
+  count   = var.ec2_worker_instance_quantity
+  zone_id = var.route53_zone_id
+  name    = "${var.subdomain_name}-worker-${count.index}"
+  type    = "CNAME"
+  ttl     = "300"
+  records = [module.ec2_worker[0].public_ips[count.index]]
+}
+
+resource "aws_iam_role_policy" "ec2_worker_storage" {
+  count  = var.ec2_worker_instance_quantity > 0 ? 1 : 0
+  name   = "${var.project_slug}-storage"
+  role   = module.ec2_worker[0].iam_role_id
+  policy = module.storage.django_policy
+}
