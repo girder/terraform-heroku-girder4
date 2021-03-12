@@ -95,7 +95,7 @@ resource "aws_route53_record" "ec2_worker" {
   count   = var.ec2_worker_instance_quantity
   zone_id = var.route53_zone_id
   name    = "${var.subdomain_name}-worker-${count.index}"
-  type    = "CNAME"
+  type    = "A"
   ttl     = "300"
   records = [module.ec2_worker[0].public_ips[count.index]]
 }
