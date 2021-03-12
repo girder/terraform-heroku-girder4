@@ -13,6 +13,12 @@ output "heroku_iam_user_id" {
   description = "The ID of the IAM user for Heroku."
 }
 
+output "all_django_vars" {
+  value       = module.heroku.all_config_vars
+  description = "All Django environment variables, as they are effectively set."
+  sensitive   = true
+}
+
 output "storage_bucket_name" {
   value       = module.storage.bucket_name
   description = "The storage S3 bucket name."
