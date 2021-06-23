@@ -105,7 +105,7 @@ variable "heroku_papertrail_plan" {
 
 variable "ec2_worker_ssh_public_key" {
   type        = string
-  default     = null
+  default     = ""
   description = "An SSH public key, to be installed on the EC2 workers. This must be set if ec2_worker_instance_quantity > 0."
 }
 
