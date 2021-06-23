@@ -22,19 +22,19 @@ variable "route53_zone_id" {
 # Optional variables
 variable "heroku_app_name" {
   type        = string
-  default     = null # Actual default is set internally
+  default     = "" # Actual default is set internally
   description = "The name of the Heroku app."
 }
 
 variable "storage_bucket_name" {
   type        = string
-  default     = null # Actual default is set internally
+  default     = "" # Actual default is set internally
   description = "The globally unique S3 bucket name of the storage."
 }
 
 variable "django_default_from_email" {
   type        = string
-  default     = null # Actual default is set internally
+  default     = "" # Actual default is set internally
   description = "The default email address which Django will send from."
 }
 
@@ -105,7 +105,7 @@ variable "heroku_papertrail_plan" {
 
 variable "ec2_worker_ssh_public_key" {
   type        = string
-  default     = null
+  default     = ""
   description = "An SSH public key, to be installed on the EC2 workers. This must be set if ec2_worker_instance_quantity > 0."
 }
 
