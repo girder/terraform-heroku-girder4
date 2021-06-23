@@ -6,12 +6,12 @@ provider "heroku" {
   # Must set HEROKU_EMAIL, HEROKU_API_KEY envvars
 }
 
-data "aws_route53_zone" "domain" {
+data "aws_route53_zone" "this" {
   # This must be created by hand in the AWS console
   name = "rootdomain.test"
 }
 
-data "heroku_team" "heroku" {
+data "heroku_team" "this" {
   # This must be created by hand in the Heroku console
   name = "heroku_team"
 }
@@ -33,8 +33,8 @@ module "django" {
   source = "girder/django/heroku"
 
   project_slug     = random_pet.instance_name.id
-  route53_zone_id  = data.aws_route53_zone.domain.zone_id
-  heroku_team_name = data.heroku_team.heroku.name
+  route53_zone_id  = data.aws_route53_zone.this.zone_id
+  heroku_team_name = data.heroku_team.this.name
   subdomain_name   = random_pet.instance_name.id
 
   // Provisional an optional EC2 worker too
