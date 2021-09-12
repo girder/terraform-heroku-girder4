@@ -8,9 +8,9 @@ resource "heroku_app" "heroku" {
   organization {
     name = data.heroku_team.heroku.name
   }
-  buildpacks = [
+  buildpacks = concat([
     "heroku/python"
-  ]
+  ], var.additional_buildpacks)
   acm = true # SSL certs for custom domain
 
   # Auto-created (by addons) config vars:
