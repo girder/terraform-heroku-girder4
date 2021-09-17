@@ -26,6 +26,12 @@ variable "heroku_app_name" {
   description = "The name of the Heroku app."
 }
 
+variable "heroku_additional_buildpacks" {
+  type        = list(string)
+  default     = []
+  description = "Additional buildpacks to use on Heroku."
+}
+
 variable "storage_bucket_name" {
   type        = string
   default     = "" # Actual default is set internally

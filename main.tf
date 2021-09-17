@@ -62,13 +62,14 @@ module "heroku" {
     var.additional_sensitive_django_vars
   )
 
-  web_dyno_size        = var.heroku_web_dyno_size
-  web_dyno_quantity    = var.heroku_web_dyno_quantity
-  worker_dyno_size     = var.heroku_worker_dyno_size
-  worker_dyno_quantity = var.heroku_worker_dyno_quantity
-  postgresql_plan      = var.heroku_postgresql_plan
-  cloudamqp_plan       = var.heroku_cloudamqp_plan
-  papertrail_plan      = var.heroku_papertrail_plan
+  additional_buildpacks = var.heroku_additional_buildpacks
+  web_dyno_size         = var.heroku_web_dyno_size
+  web_dyno_quantity     = var.heroku_web_dyno_quantity
+  worker_dyno_size      = var.heroku_worker_dyno_size
+  worker_dyno_quantity  = var.heroku_worker_dyno_quantity
+  postgresql_plan       = var.heroku_postgresql_plan
+  cloudamqp_plan        = var.heroku_cloudamqp_plan
+  papertrail_plan       = var.heroku_papertrail_plan
 }
 
 resource "aws_route53_record" "heroku" {

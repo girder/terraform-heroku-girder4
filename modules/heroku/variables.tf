@@ -25,6 +25,12 @@ variable "fqdn" {
 }
 
 # Optional variables
+variable "additional_buildpacks" {
+  type        = list(string)
+  default     = []
+  description = "Additional buildpacks to use."
+}
+
 variable "web_dyno_size" {
   type        = string
   default     = "hobby"

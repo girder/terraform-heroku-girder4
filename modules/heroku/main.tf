@@ -8,10 +8,10 @@ resource "heroku_app" "heroku" {
   organization {
     name = data.heroku_team.heroku.name
   }
-  buildpacks = [
-    "heroku/python"
-  ]
-  acm = true # SSL certs for custom domain
+  # The buildpack for the primary language must come last
+  # https://devcenter.heroku.com/articles/using-multiple-buildpacks-for-an-app#adding-a-buildpack
+  buildpacks = concat(var.additional_buildpacks, ["heroku/python"])
+  acm        = true # SSL certs for custom domain
 
   # Auto-created (by addons) config vars:
   # * CLOUDAMQP_APIKEY
