@@ -2,7 +2,7 @@ resource "aws_instance" "ec2_worker" {
   count = var.instance_quantity
 
   instance_type                        = var.instance_type
-  ami                                  = data.aws_ami.ec2_worker.id
+  ami                                  = var.ami_id == "" ? data.aws_ami.ec2_worker.id : var.ami_id
   monitoring                           = false
   instance_initiated_shutdown_behavior = "stop"
 

@@ -155,3 +155,9 @@ variable "ec2_worker_volume_size" {
   default     = 40
   description = "The size, in GB, of the root EBS volume for the EC2 workers."
 }
+
+variable "ec2_worker_ami_id" {
+  type        = string
+  default     = ""
+  description = "A custom AMI ID to use on the EC2 workers."
+}
