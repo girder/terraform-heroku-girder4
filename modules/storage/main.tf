@@ -1,21 +1,14 @@
 resource "aws_s3_bucket" "storage" {
   bucket = var.bucket_name
+}
+
+resource "aws_s3_bucket_acl" "storage" {
+  bucket = aws_s3_bucket.storage.id
   acl    = "private"
-  policy = data.aws_iam_policy_document.storage_bucket.json
+}
 
-  // Encrypt with an Amazon-managed key
-  server_side_encryption_configuration {
-    rule {
-      apply_server_side_encryption_by_default {
-        sse_algorithm = "AES256"
-      }
-    }
-  }
-
-  lifecycle_rule {
-    enabled                                = true
-    abort_incomplete_multipart_upload_days = 7
-  }
+resource "aws_s3_bucket_cors_configuration" "storage" {
+  bucket = aws_s3_bucket.storage.id
 
   cors_rule {
     allowed_headers = ["*"]
@@ -61,6 +54,33 @@ resource "aws_s3_bucket" "storage" {
   }
 }
 
+resource "aws_s3_bucket_lifecycle_configuration" "storage" {
+  bucket = aws_s3_bucket.storage.id
+
+  rule {
+    id     = "abort-incomplete-multipart-upload"
+    status = "Enabled"
+    abort_incomplete_multipart_upload {
+      days_after_initiation = 7
+    }
+  }
+}
+
+resource "aws_s3_bucket_server_side_encryption_configuration" "storage" {
+  bucket = aws_s3_bucket.storage.id
+
+  // Encrypt with an Amazon-managed key
+  rule {
+    apply_server_side_encryption_by_default {
+      sse_algorithm = "AES256"
+    }
+  }
+}
+
+resource "aws_s3_bucket_policy" "storage" {
+  bucket = aws_s3_bucket.storage.id
+  policy = data.aws_iam_policy_document.storage_bucket.json
+}
 
 data "aws_iam_policy_document" "storage_bucket" {
   statement {
