@@ -23,35 +23,35 @@ resource "heroku_app" "heroku" {
 }
 
 resource "heroku_formation" "heroku_web" {
-  app      = heroku_app.heroku.id
+  app_id   = heroku_app.heroku.id
   type     = "web"
   size     = var.web_dyno_size
   quantity = var.web_dyno_quantity
 }
 
 resource "heroku_formation" "heroku_worker" {
-  app      = heroku_app.heroku.id
+  app_id   = heroku_app.heroku.id
   type     = "worker"
   size     = var.worker_dyno_size
   quantity = var.worker_dyno_quantity
 }
 
 resource "heroku_addon" "heroku_postgresql" {
-  app  = heroku_app.heroku.id
-  plan = "heroku-postgresql:${var.postgresql_plan}"
+  app_id = heroku_app.heroku.id
+  plan   = "heroku-postgresql:${var.postgresql_plan}"
 }
 
 resource "heroku_addon" "heroku_cloudamqp" {
-  app  = heroku_app.heroku.id
-  plan = "cloudamqp:${var.cloudamqp_plan}"
+  app_id = heroku_app.heroku.id
+  plan   = "cloudamqp:${var.cloudamqp_plan}"
 }
 
 resource "heroku_addon" "heroku_papertrail" {
-  app  = heroku_app.heroku.id
-  plan = "papertrail:${var.papertrail_plan}"
+  app_id = heroku_app.heroku.id
+  plan   = "papertrail:${var.papertrail_plan}"
 }
 
 resource "heroku_domain" "heroku" {
-  app      = heroku_app.heroku.id
+  app_id   = heroku_app.heroku.id
   hostname = var.fqdn
 }
