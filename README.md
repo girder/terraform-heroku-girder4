@@ -1,11 +1,18 @@
-# terraform-heroku-django
-**Note: This module has been moved to `girder/girder4/heroku`.**
+# terraform-heroku-girder4
+A Terraform module to provision Girder4 infrastructure on Heroku + AWS.
 
-A Terraform module to provision Django-Girder infrastructure on Heroku + AWS.
+This facilitates deployment of Django applications created from the
+[Girder4 cookiecutter](https://github.com/girder/cookiecutter-girder-4).
+It creates a Heroku app with addons for
+[PostgreSQL](https://elements.heroku.com/addons/heroku-postgresql),
+[CloudAMQP](https://elements.heroku.com/addons/cloudamqp),
+and [Papertrail](https://elements.heroku.com/addons/papertrail).
+It also creates
+[AWS S3](https://aws.amazon.com/s3/) storage,
+[outgoing SMTP](https://aws.amazon.com/ses/) credentials,
+and an optional [AWS EC2](https://aws.amazon.com/ec2/) worker.
 
-This provides a Heroku app, an IAM user, an S3 storage, and outgoing SMTP credentials.
-
-See [full usage documentation at Terraform Registry](https://registry.terraform.io/modules/girder/django/heroku).
+See [full usage documentation at Terraform Registry](https://registry.terraform.io/modules/girder/girder4/heroku).
 
 ## Note on AWS Email Sending
 [Every AWS account must explicitly apply to send real emails](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html),

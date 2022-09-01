@@ -30,7 +30,7 @@ resource "random_pet" "instance_name" {
 }
 
 module "django" {
-  source = "girder/django/heroku"
+  source = "girder/girder4/heroku"
 
   project_slug     = random_pet.instance_name.id
   route53_zone_id  = data.aws_route53_zone.this.zone_id
