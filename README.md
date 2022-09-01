@@ -1,4 +1,6 @@
 # terraform-heroku-django
+**Note: This module has been moved to `girder/girder4/heroku`.**
+
 A Terraform module to provision Django-Girder infrastructure on Heroku + AWS.
 
 This provides a Heroku app, an IAM user, an S3 storage, and outgoing SMTP credentials.
