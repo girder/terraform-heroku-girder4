@@ -14,7 +14,7 @@ resource "aws_instance" "ec2_worker" {
 
   root_block_device {
     volume_size = var.volume_size
-    volume_type = "gp2"
+    volume_type = "gp3"
     tags = {
       Name = "${var.project_slug}-${count.index}"
     }
