@@ -8,3 +8,16 @@ terraform {
     }
   }
 }
+
+moved {
+  from = heroku_addon.heroku_postgresql
+  to   = heroku_addon.heroku_postgresql[0]
+}
+moved {
+  from = heroku_addon.heroku_cloudamqp
+  to   = heroku_addon.heroku_cloudamqp[0]
+}
+moved {
+  from = heroku_addon.heroku_papertrail
+  to   = heroku_addon.heroku_papertrail[0]
+}
