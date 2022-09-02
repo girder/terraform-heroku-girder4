@@ -58,17 +58,17 @@ variable "worker_dyno_quantity" {
 variable "postgresql_plan" {
   type        = string
   default     = "hobby-dev"
-  description = "The Postgres add-on plan type."
+  description = "The Postgres add-on plan type, or \"\" to disable."
 }
 
 variable "cloudamqp_plan" {
   type        = string
   default     = "lemur"
-  description = "The CloudAMQP add-on plan type."
+  description = "The CloudAMQP add-on plan type, or \"\" to disable."
 }
 
 variable "papertrail_plan" {
   type        = string
   default     = "choklad"
-  description = "The Papertrail add-on plan type."
+  description = "The Papertrail add-on plan type, or \"\" to disable."
 }
