@@ -158,6 +158,7 @@ variable "ec2_worker_volume_size" {
 
 variable "ec2_worker_ami_id" {
   type        = string
-  default     = ""
-  description = "A custom AMI ID to use on the EC2 workers."
+  nullable    = true
+  default     = null # Effective default is set internally
+  description = "The AMI ID to use on the EC2 workers."
 }
