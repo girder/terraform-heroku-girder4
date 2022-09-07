@@ -2,7 +2,7 @@ resource "aws_instance" "ec2_worker" {
   count = var.instance_quantity
 
   instance_type                        = var.instance_type
-  ami                                  = coalesce(var.ami_id, data.aws_ami.ec2_worker.id)
+  ami                                  = coalesce(var.ami_id, data.aws_ami.ec2_worker_default.id)
   monitoring                           = false
   instance_initiated_shutdown_behavior = "stop"
 
@@ -32,7 +32,7 @@ resource "aws_instance" "ec2_worker" {
   }
 }
 
-data "aws_ami" "ec2_worker" {
+data "aws_ami" "ec2_worker_default" {
   owners      = ["099720109477"] # Canonical
   most_recent = true
 
