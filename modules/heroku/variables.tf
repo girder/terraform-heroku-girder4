@@ -69,21 +69,21 @@ variable "worker_dyno_quantity" {
 
 variable "postgresql_plan" {
   type        = string
-  nullable    = false
+  nullable    = true
   default     = "hobby-dev"
-  description = "The Postgres add-on plan type, or \"\" to disable."
+  description = "The Postgres add-on plan type, or null to disable."
 }
 
 variable "cloudamqp_plan" {
   type        = string
-  nullable    = false
+  nullable    = true
   default     = "lemur"
-  description = "The CloudAMQP add-on plan type, or \"\" to disable."
+  description = "The CloudAMQP add-on plan type, or null to disable."
 }
 
 variable "papertrail_plan" {
   type        = string
-  nullable    = false
+  nullable    = true
   default     = "choklad"
-  description = "The Papertrail add-on plan type, or \"\" to disable."
+  description = "The Papertrail add-on plan type, or null to disable."
 }

@@ -109,23 +109,23 @@ variable "heroku_worker_dyno_quantity" {
 
 variable "heroku_postgresql_plan" {
   type        = string
-  nullable    = false
+  nullable    = true
   default     = "hobby-dev"
-  description = "The Heroku Postgres add-on plan type, or \"\" to disable."
+  description = "The Heroku Postgres add-on plan type, or null to disable."
 }
 
 variable "heroku_cloudamqp_plan" {
   type        = string
-  nullable    = false
+  nullable    = true
   default     = "lemur"
-  description = "The Heroku CloudAMQP add-on plan type, or \"\" to disable."
+  description = "The Heroku CloudAMQP add-on plan type, or null to disable."
 }
 
 variable "heroku_papertrail_plan" {
   type        = string
-  nullable    = false
+  nullable    = true
   default     = "choklad"
-  description = "The Heroku Papertrail add-on plan type, or \"\" to disable."
+  description = "The Heroku Papertrail add-on plan type, or null to disable."
 }
 
 variable "ec2_worker_ssh_public_key" {
