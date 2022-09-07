@@ -27,7 +27,7 @@ variable "route53_zone_id" {
 variable "heroku_app_name" {
   type        = string
   nullable    = true
-  default     = null # Actual default is set internally
+  default     = null # Effective default is set internally
   description = "The name of the Heroku app."
 }
 
@@ -41,14 +41,14 @@ variable "heroku_additional_buildpacks" {
 variable "storage_bucket_name" {
   type        = string
   nullable    = true
-  default     = null # Actual default is set internally
+  default     = null # Effective default is set internally
   description = "The globally unique S3 bucket name of the storage."
 }
 
 variable "django_default_from_email" {
   type        = string
   nullable    = true
-  default     = null # Actual default is set internally
+  default     = null # Effective default is set internally
   description = "The default email address which Django will send from."
 }
 
