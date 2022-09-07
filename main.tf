@@ -18,8 +18,7 @@ module "storage" {
 }
 
 module "smtp" {
-  source  = "girder/girder/aws//modules/smtp"
-  version = "0.8.0"
+  source = "./modules/smtp"
 
   fqdn            = local.fqdn
   project_slug    = var.project_slug
