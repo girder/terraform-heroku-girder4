@@ -1,74 +1,89 @@
 variable "team_name" {
   type        = string
+  nullable    = false
   description = "The name of the team for the app."
 }
 
 variable "app_name" {
   type        = string
+  nullable    = false
   description = "The name of the app."
 }
 
+variable "fqdn" {
+  type        = string
+  nullable    = false
+  description = "The fully-qualified domain name of the app."
+}
+
+# Optional variables
 variable "config_vars" {
   type        = map(string)
+  nullable    = false
+  default     = {}
   description = "App environment variables, which will not be printed."
 }
 
 variable "sensitive_config_vars" {
   type        = map(string)
+  nullable    = false
+  default     = {}
   description = "App environment variables."
   sensitive   = true
 }
 
-variable "fqdn" {
-  type        = string
-  description = "The fully-qualified domain name of the app."
-}
-
-# Optional variables
 variable "additional_buildpacks" {
   type        = list(string)
+  nullable    = false
   default     = []
   description = "Additional buildpacks to use."
 }
 
 variable "web_dyno_size" {
   type        = string
+  nullable    = false
   default     = "hobby"
   description = "The web server dyno size."
 }
 
 variable "web_dyno_quantity" {
   type        = number
+  nullable    = false
   default     = 1
   description = "The web server dyno quantity."
 }
 
 variable "worker_dyno_size" {
   type        = string
+  nullable    = false
   default     = "hobby"
   description = "The worker dyno size."
 }
 
 variable "worker_dyno_quantity" {
   type        = number
+  nullable    = false
   default     = 1
   description = "The worker dyno quantity."
 }
 
 variable "postgresql_plan" {
   type        = string
+  nullable    = false
   default     = "hobby-dev"
   description = "The Postgres add-on plan type, or \"\" to disable."
 }
 
 variable "cloudamqp_plan" {
   type        = string
+  nullable    = false
   default     = "lemur"
   description = "The CloudAMQP add-on plan type, or \"\" to disable."
 }
 
 variable "papertrail_plan" {
   type        = string
+  nullable    = false
   default     = "choklad"
   description = "The Papertrail add-on plan type, or \"\" to disable."
 }
