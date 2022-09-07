@@ -37,19 +37,19 @@ resource "heroku_formation" "heroku_worker" {
 }
 
 resource "heroku_addon" "heroku_postgresql" {
-  count  = var.postgresql_plan == "" ? 0 : 1
+  count  = var.postgresql_plan == null ? 0 : 1
   app_id = heroku_app.heroku.id
   plan   = "heroku-postgresql:${var.postgresql_plan}"
 }
 
 resource "heroku_addon" "heroku_cloudamqp" {
-  count  = var.cloudamqp_plan == "" ? 0 : 1
+  count  = var.cloudamqp_plan == null ? 0 : 1
   app_id = heroku_app.heroku.id
   plan   = "cloudamqp:${var.cloudamqp_plan}"
 }
 
 resource "heroku_addon" "heroku_papertrail" {
-  count  = var.papertrail_plan == "" ? 0 : 1
+  count  = var.papertrail_plan == null ? 0 : 1
   app_id = heroku_app.heroku.id
   plan   = "papertrail:${var.papertrail_plan}"
 }
