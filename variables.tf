@@ -82,7 +82,7 @@ variable "additional_sensitive_django_vars" {
 variable "heroku_web_dyno_size" {
   type        = string
   nullable    = false
-  default     = "hobby"
+  default     = "basic"
   description = "The Heroku web server dyno size."
 }
 
@@ -96,7 +96,7 @@ variable "heroku_web_dyno_quantity" {
 variable "heroku_worker_dyno_size" {
   type        = string
   nullable    = false
-  default     = "hobby"
+  default     = "basic"
   description = "The Heroku worker dyno size."
 }
 
@@ -110,7 +110,7 @@ variable "heroku_worker_dyno_quantity" {
 variable "heroku_postgresql_plan" {
   type        = string
   nullable    = true
-  default     = "hobby-dev"
+  default     = "mini"
   description = "The Heroku Postgres add-on plan type, or null to disable."
 }
 
