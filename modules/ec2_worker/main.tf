@@ -81,8 +81,6 @@ resource "aws_eip" "ec2_worker" {
   count = var.instance_quantity
 
   instance = aws_instance.ec2_worker[count.index].id
-  # This attribute is currently required, due to the retirement of EC2 Classic
-  vpc = true
 
   tags = {
     Name = "${var.project_slug}-${count.index}"
