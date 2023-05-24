@@ -34,3 +34,18 @@ Finally, run `terraform apply` again, which should succeed.
 
 Afterwards, it's advisable to also
 [set up automatic deploys](https://devcenter.heroku.com/articles/github-integration#automatic-deploys).
+
+## Note on EC2 Worker AMIs
+
+Newly launched EC2 worker instances will use the latest AMI at the time of launch, but
+existing instances will not be replaced when a newer AMI is available. Thus, incrementally scaling
+up the `ec2_worker_instance_quantity` variable may result in multiple instances with slightly
+different AMIs.
+
+Likewise, setting or changing the optional variable `ec2_worker_launch_ami_id` will only affect
+newly launched instances, but will also not trigger the replacement of any existing instances with
+a different AMI.
+
+Use [the `-replace` option](https://developer.hashicorp.com/terraform/cli/commands/plan#replace-address)
+with the `module.<girder4>.module.ec2_worker[0].aws_instance.ec2_worker[*]` target (where
+`<girder4>` is the local name of this module) to force the replacement of all existing instances.

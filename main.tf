@@ -89,6 +89,7 @@ module "ec2_worker" {
   instance_type     = var.ec2_worker_instance_type
   instance_quantity = var.ec2_worker_instance_quantity
   volume_size       = var.ec2_worker_volume_size
+  launch_ami_id     = var.ec2_worker_launch_ami_id
 }
 
 resource "aws_route53_record" "ec2_worker" {
