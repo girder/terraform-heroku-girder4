@@ -36,7 +36,6 @@ Afterwards, it's advisable to also
 [set up automatic deploys](https://devcenter.heroku.com/articles/github-integration#automatic-deploys).
 
 ## Note on EC2 Worker AMIs
-
 Newly launched EC2 worker instances will use the latest AMI at the time of launch, but
 existing instances will not be replaced when a newer AMI is available. Thus, incrementally scaling
 up the `ec2_worker_instance_quantity` variable may result in multiple instances with slightly
