@@ -156,9 +156,9 @@ variable "ec2_worker_volume_size" {
   description = "The size, in GB, of the root EBS volume for the EC2 workers."
 }
 
-variable "ec2_worker_ami_id" {
+variable "ec2_worker_launch_ami_id" {
   type        = string
   nullable    = true
   default     = null # Effective default is set internally
-  description = "The AMI ID to use on the EC2 workers."
+  description = "The AMI ID used to initially launch the EC2 workers. Changing this will not replace existing instances."
 }
