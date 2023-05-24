@@ -70,7 +70,7 @@ variable "worker_dyno_quantity" {
 variable "postgresql_plan" {
   type        = string
   nullable    = true
-  default     = "mini"
+  default     = "basic"
   description = "The Postgres add-on plan type, or null to disable."
 }
 
