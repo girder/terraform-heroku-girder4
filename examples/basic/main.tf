@@ -24,12 +24,12 @@ data "local_file" "ssh_public_key" {
 # This provides a zero-configuration option for assigning names,
 # but most projects will want to select a more specific name instead
 resource "random_pet" "instance_name" {
-  prefix    = "girder"
+  prefix    = "girder4"
   length    = 2
   separator = "-"
 }
 
-module "django" {
+module "girder4" {
   source = "girder/girder4/heroku"
 
   project_slug     = random_pet.instance_name.id
@@ -43,20 +43,20 @@ module "django" {
 }
 
 output "fqdn" {
-  value = module.django.fqdn
+  value = module.girder4.fqdn
 }
 output "heroku_app_id" {
-  value = module.django.heroku_app_id
+  value = module.girder4.heroku_app_id
 }
 output "heroku_iam_user_id" {
-  value = module.django.heroku_iam_user_id
+  value = module.girder4.heroku_iam_user_id
 }
 output "storage_bucket_name" {
-  value = module.django.storage_bucket_name
+  value = module.girder4.storage_bucket_name
 }
 output "ec2_worker_hostnames" {
-  value = module.django.ec2_worker_hostnames
+  value = module.girder4.ec2_worker_hostnames
 }
 output "ec2_worker_iam_role_id" {
-  value = module.django.ec2_worker_iam_role_id
+  value = module.girder4.ec2_worker_iam_role_id
 }

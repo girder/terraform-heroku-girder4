@@ -42,7 +42,7 @@ variable "additional_buildpacks" {
 variable "web_dyno_size" {
   type        = string
   nullable    = false
-  default     = "hobby"
+  default     = "basic"
   description = "The web server dyno size."
 }
 
@@ -56,7 +56,7 @@ variable "web_dyno_quantity" {
 variable "worker_dyno_size" {
   type        = string
   nullable    = false
-  default     = "hobby"
+  default     = "basic"
   description = "The worker dyno size."
 }
 
@@ -70,7 +70,7 @@ variable "worker_dyno_quantity" {
 variable "postgresql_plan" {
   type        = string
   nullable    = true
-  default     = "hobby-dev"
+  default     = "mini"
   description = "The Postgres add-on plan type, or null to disable."
 }
 
