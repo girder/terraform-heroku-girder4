@@ -5,7 +5,7 @@ This facilitates deployment of Django applications created from the
 [Girder4 cookiecutter](https://github.com/girder/cookiecutter-girder-4).
 It creates a Heroku app with addons for
 [PostgreSQL](https://elements.heroku.com/addons/heroku-postgresql),
-[CloudAMQP](https://elements.heroku.com/addons/cloudamqp),
+[Redis](https://elements.heroku.com/addons/heroku-redis),
 and [Papertrail](https://elements.heroku.com/addons/papertrail).
 It also creates
 [AWS S3](https://aws.amazon.com/s3/) storage,
