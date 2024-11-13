@@ -2,9 +2,13 @@ resource "aws_s3_bucket" "storage" {
   bucket = var.bucket_name
 }
 
-resource "aws_s3_bucket_acl" "storage" {
+resource "aws_s3_bucket_ownership_controls" "storage" {
   bucket = aws_s3_bucket.storage.id
-  acl    = "private"
+  rule {
+    # Disable all ACLs, as they are discouraged for typical use cases
+    # https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html
+    object_ownership = "BucketOwnerEnforced"
+  }
 }
 
 resource "aws_s3_bucket_cors_configuration" "storage" {
