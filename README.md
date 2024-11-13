@@ -1,8 +1,8 @@
-# terraform-heroku-girder4
-A Terraform module to provision Girder4 infrastructure on Heroku + AWS.
+# terraform-heroku-resonant
+A Terraform module to provision Kitware Resonant infrastructure on Heroku + AWS.
 
 This facilitates deployment of Django applications created from the
-[Girder4 cookiecutter](https://github.com/girder/cookiecutter-girder-4).
+[Resonant cookiecutter](https://github.com/kitware-resonant/cookiecutter-resonant).
 It creates a Heroku app with addons for
 [PostgreSQL](https://elements.heroku.com/addons/heroku-postgresql),
 [CloudAMQP](https://elements.heroku.com/addons/cloudamqp),
@@ -12,7 +12,7 @@ It also creates
 [outgoing SMTP](https://aws.amazon.com/ses/) credentials,
 and an optional [AWS EC2](https://aws.amazon.com/ec2/) worker.
 
-See [full usage documentation at Terraform Registry](https://registry.terraform.io/modules/girder/girder4/heroku).
+See [full usage documentation at Terraform Registry](https://registry.terraform.io/modules/kitware-resonant/resonant/heroku).
 
 ## Note on AWS Email Sending
 [Every AWS account must explicitly apply to send real emails](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/request-production-access.html),
@@ -46,5 +46,5 @@ newly launched instances, but will also not trigger the replacement of any exist
 a different AMI.
 
 Use [the `-replace` option](https://developer.hashicorp.com/terraform/cli/commands/plan#replace-address)
-with the `module.<girder4>.module.ec2_worker[0].aws_instance.ec2_worker[*]` target (where
-`<girder4>` is the local name of this module) to force the replacement of all existing instances.
+with the `module.<resonant>.module.ec2_worker[0].aws_instance.ec2_worker[*]` target (where
+`<resonant>` is the local name of this module) to force the replacement of all existing instances.
