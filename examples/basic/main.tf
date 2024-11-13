@@ -24,13 +24,13 @@ data "local_file" "ssh_public_key" {
 # This provides a zero-configuration option for assigning names,
 # but most projects will want to select a more specific name instead
 resource "random_pet" "instance_name" {
-  prefix    = "girder4"
+  prefix    = "resonant"
   length    = 2
   separator = "-"
 }
 
-module "girder4" {
-  source = "girder/girder4/heroku"
+module "resonant" {
+  source = "kitware-resonant/resonant/heroku"
 
   project_slug     = random_pet.instance_name.id
   route53_zone_id  = data.aws_route53_zone.this.zone_id
@@ -43,20 +43,20 @@ module "girder4" {
 }
 
 output "fqdn" {
-  value = module.girder4.fqdn
+  value = module.resonant.fqdn
 }
 output "heroku_app_id" {
-  value = module.girder4.heroku_app_id
+  value = module.resonant.heroku_app_id
 }
 output "heroku_iam_user_id" {
-  value = module.girder4.heroku_iam_user_id
+  value = module.resonant.heroku_iam_user_id
 }
 output "storage_bucket_name" {
-  value = module.girder4.storage_bucket_name
+  value = module.resonant.storage_bucket_name
 }
 output "ec2_worker_hostnames" {
-  value = module.girder4.ec2_worker_hostnames
+  value = module.resonant.ec2_worker_hostnames
 }
 output "ec2_worker_iam_role_id" {
-  value = module.girder4.ec2_worker_iam_role_id
+  value = module.resonant.ec2_worker_iam_role_id
 }
